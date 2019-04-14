@@ -23,6 +23,7 @@
 <b>R download</b>: https://cran.r-project.org <br>
 <b>RStudio download</b>: https://www.rstudio.com/products/rstudio/download/ <br>
 <b>Kaggle</b>: https://kaggle.com <br>
+<b>R Codes</b>: https://github.com/encaion/R_edu <br>
 <br>
 
 #### 책
