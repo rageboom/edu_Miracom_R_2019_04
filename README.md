@@ -21,7 +21,7 @@
 ---------
 # 링크 모음
 <b>R download</b>: https://cran.r-project.org <br>
-<b>RStudio download</b>: https://www.rstudio.com/products/rstudio/download/ <br>
+<b>RStudio download</b>: http://download1.rstudio.org/RStudio-1.1.463.exe <br>
 <b>Kaggle</b>: https://kaggle.com <br>
 <b>R Codes</b>: https://github.com/encaion/R_edu <br>
 <br>
