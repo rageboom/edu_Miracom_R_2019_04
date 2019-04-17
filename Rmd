@@ -1,0 +1,186 @@
+---
+title: "단일 모집단의 추정과 가설검정"
+subtitle: "데이터 분석과 해석 : R 통계학(권혁제, (주)박영사)"
+output: html_document
+---
+
+<br>
+<br>
+
+## 추정과 가설검정
+
+<br>
+<h4><b>통계적 추측</b></h4>
+<div style="color:#000000; background-color:#eaf7ed; padding:5px;">
+모집단의 모수(parameter)가 알려지지 않은 상태에서 모수를 알고자 할 때 일반적으로 표본조사를 통해 이를 추측하게 되는데 이러한 과정을 통계적 추측(statistical inference)이라 한다. 이러한 통계적 추측을 하는 방법은 추정(estimation)과 가설검정(hypothesis testing)의 두 가지로 구분된다.
+</div>
+
+<br>
+<h4><span style="background-color:#67d8a8;">예제</span></h4>
+
+> 다음 사항이 통계적 추측에 해당하는지 확인하시오. 
+
+* 표본평균 $\bar{X}$를 기초로 모평균 $\mu$를 추정한다.
+* 모집단의 표준편차($\sigma$)를 사용해서 표본의 표준편차($\mathit{S}$)를 추정한다.
+* 표본분산($\mathit{S}^2$)을 이용해서 모분산($\sigma ^2$)을 추정한다.
+
+<br>
+
+***
+
+<br>
+
+<h4><b>추정</b></h4>
+
+<div style="color:#000000; background-color:#eaf7ed; padding:5px;">
+모집단의 특성을 나타내는 모수(parameter)가 알려져 있지 않을 때, 이를 대신하여 사용할 수 있는 합당한 값 또는 합당한 값의 범위를 표본으로부터 구하는 과정을 추정(estimation)이라 한다.<br>
+이 때 모수를 대신하여 사용할 수 있는 합당한 값으로서, 표본으로부터 추정 과정을 통해 얻게 되는 모집단 모수에 대한 추측값을 추정치(estimate)라고 하며 이러한 추정치가 하나의 특정한 값으로 추측되어질 때 이를 점추정치(point estimate) 또는 줄여서 추정치라 한다. 또한 표본으로부터 추정 과정을 통해 얻은 추정치가 하나의 값이 아니라 모수가 속해 있을 합당한 값의 범위를 나타내는 형태로 추측되어질 때 이를 구간추정치(interval estimate)라고 한다.
+</div>
+
+<br>
+<h4><span style="background-color:#67d8a8;">예제</span></h4>
+
+> 모비율 $\pi$ 에 대한 점추정치가 0.36이고 95%의 신뢰수준에서 오차의 한계가 0.12라고 할 때 구간추정치를 구하고 이를 해석하시오.
+
+<br>
+<h4><span style="background-color:#67d8a8;">예제</span></h4>
+
+> 신뢰구간이 6.8에서 8.4의 범위를 가질 때 점추정치와 추정치 오차는 얼마인가?
+
+<br>
+
+***
+
+<h4><b>가설검정</b></h4>
+
+<div style="color:#000000; background-color:#eaf7ed; padding:5px;">
+모집단'모수'에 대한 어떤 가정이나 증명되지 않은 사실, 즉 가설(hypothesis)에 대해 이를 받아들일 것인지(accept) 또는 기각(reject)할 것인지를 표본으로부터 얻은 정보를 바탕으로 검정(test)하는 과정을 말한다. 이 검정과정에서의 기본적 논리는 표본분포와 확률이론에 기반을 두고 있다.
+</div>
+
+<h4><b>귀무가설과 대립가설</b></h4>
+<div style="color:#000000; background-color:#eaf7ed; padding:5px;">
+가설검정의 과정은 귀무가설(null hypothesis: $H_0$)과 대립가설(alternative hypothesis: $H_a$)의 두 가지 상반된 가설의 설정을 통해 이루어지게 되는데, 여기서 귀무가설이란 검정(test) 대상이 되는 가설로서 여기에는 반드시 모집단 모수 값이 포함되어 있는 것이 특징이다. 이에 반해 대립가설은 이러한 귀무가설과 상반된 내용으로서 모수 값이 포함되지 않은 상태의 가설을 말한다.
+</div>
+
+<br>
+<h4><span style="background-color:#67d8a8;">예제</span></h4>
+
+> $$H_0: \mu = 특정한 값$$
+> $$H_a: \mu \neq 특정한 값$$
+
+> $$H_a: \mu \ge 특정한 값$$
+> $$H_a: \mu \lt 특정한 값$$
+
+> $$H_a: \mu \le 특정한 값$$
+> $$H_a: \mu \gt 특정한 값$$
+
+
+### ○ NOTE
+귀무가설과 대립가설을 설정할 때 어떤 내용이 귀무가설이 되고 대립가설이 될 것인가는 일반적으로 다음 기준에 따른다.
+> (1) 모집단의 모수 값을 포함하는 내용의 가설은 귀무가설로 설정된다. 이는 위에서 언급한대로 귀무가설이 검정의 대상이 되는 내용을 포함하는 가설이기 때문이다.
+> (2) 진실일 것으로 가정하는 모수 값에 대한 내용을 귀무가설로 설정한다.
+
+
+<br>
+<h4><span style="background-color:#67d8a8;">예제</span></h4>
+
+> 다음 가설검정에 대한 귀무가설과 대립가설을 설정하시오.
+(1) 대학생들의 월평균 용돈이 40만원인지를 알려고 한다.
+(2) 대학생들의 월평균 용돈이 40만원인지 40만원보다 많은지를 알려고 한다.
+
+
+***
+
+<h4><b>1종 오류와 2종 오류</b></h4>
+<div style="color:#000000; background-color:#eaf7ed; padding:5px;">
+가설검정을 시행하는 경우 모수에 대한 귀무가설이나 대립가설 중 어느 것이 채택되고 기각되는지는 표본으로부터 얻은 정보를 기초로 확률 측면에서 판단되는 것이기 때문에, 이에는 항상 잘못 판단할 위험이 따르게 된다.
+이와 같이 잘못 판단할 위험을 오류라고 하며 특히 진실(true)인 귀무가설을 기각하고 거짓(false)인 대립가설을 채택하게 되는 위험을 1종오류(type Ⅰ error), 그리고 허위인 귀무가설을 채택하고 진실인 대립가설을 기각하게 될 위험을 2종오류(type Ⅱ error) 라고 한다.
+</div>
+
+<br>
+<h4><span style="background-color:#67d8a8;">예제</span></h4>
+
+> 신약을 개발한 제약회사는 판매에 앞서 보건당국에 신약의 안전성 검증을 받아야 한다. 이를 위해 제약회사는 신약이 안전하다는 것을 당국에게 증명해 보이는데 필요한 모든 실험 결과를 제출하게 된다.
+(1) 이 경우 보건당국이 신약의 안전성 여부를 조사하기 위해 설정하는 가설의 내용은?
+(2) (1)에서 설정한 가설에 대한 1종오류와 2종오류의 의미를 기술하시오.
+(3) (1)의 가설에서 1종오류와 2종오류 중 어느 것이 더 심각한 오류인가?
+
+
+***
+
+## t 분포
+
+중심극한정리에 따르면 모평균이 $\mu$이고 표준편차가 $\sigma$인 모집단의 경우, 표본크기 $n$이 커지면 표본평균($\bar{X}$)의 표본분포(sampling distribution)는 모집단의 분포 형태에 관계없이 평균이 $\mu$이고 표준오차가 $\sigma / \sqrt{n}$인 정규분포에 근접한다.
+이 때 모집단의 표준편차 $\sigma$가 알려져 있는 경우 표본평균 ($\bar{X}$)의 표준화 $Z$ 값은 
+$$Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}$$
+에 따라 구하지만, $\sigma$가 알려져 있지 않은 경우는 표본의 표준편차 $S$로 대체하여
+$$Z = \frac{\bar{X} - \mu}{S / \sqrt{n}}$$
+에 따라 구하게 되는데 이는 표본크기가 30이상일 때 표본의 표준편차 S는 모집단의 표준편차 $\sigma$의 근사값이 된다는 사실에 근거한 것이다.
+<br><br>
+그런데 현실적으로 표본조사를 할 때 시간과 경제적인 비용 문제 등으로 인해 표본크기가 30 미만으로 결정되는 경우가 많이 있는데, 이러한 경우는 표본의 표준편차 $S$가 모집단의 표준편차 $\sigma$의 근사값이 된다는 근거를 상실하게 되어 모집단의 표준편차를 모르고 있는 경우 이를 표본의 표준편차 $S$로 대체하여 사용할 수 없는 것이다. 더구나 표본크기가 30 미만일 경우는 표본추출에서 무작위의 성격(non-randomness)이 훼손됨으로써 표본평균($\bar{X}$)의 표본분포가 정규분포에 근접한 형태를 가진다는 확신을 가질 수 없는 것이다.
+<br><br>
+소표본인 경우는 표본분포가 정규분포를 한다는(따른다는) 보장이 없다.
+즉, 표본평균 $\bar{X}$의 표준화 값인 확률변수 $Z$가 표준정규분포를 한다고 확신할 수 없는 것이다.
+이는 표본크기가 30 미만의 소표본의 경우, 모평균의 신뢰구간 추정이나 가설검정을 할 때 표준정규분포의 확률변수인 $Z$값을 이용할 수 없음을 의미하는 것이다.
+<br><br>
+그러나 모집단의 표준편차가 알려져 있지는 않지만 모집단이 $\mu_0$의 모평균을 가진 '정규분포'를 하는 경우, 표본크기가 30미만이라 하더라도 이로부터 추출한 표본들의 표본평균 $\bar{X}$에 대한 표분화 값인 $\frac{\bar{X} - \mu_0}{S / \sqrt{n}}$의 분표는 정규분포와 유사한 분포형태를 지니게 되는데 이를 t분포라 하며, 이 때 표본평균 $\bar{X}$에 대한 표준화 값인 $\frac{\bar{X} - \mu_0}{S / \sqrt{n}}$를 t통계량(t statistic)이라 한다.
+<br><br>
+따라서 표본크기가 30미만인 소표본의 경우 표본평균의 표준화 값은 계산식이 $\frac{\bar{X} - \mu_0}{S / \sqrt{n}}$으로 동일하다고 하더라도 $Z = \frac{\bar{X} - \mu_0}{S / \sqrt{n}}$대신 $t = \frac{\bar{X} - \mu_0}{S / \sqrt{n}}$으로 표시하게 된다.
+<br><br>
+
+```{r}
+dist_norm = dnorm(x = seq(-3, 3, by = 0.001))
+dist_t = dt(x = seq(-3, 3, by = 0.001), df = 3)
+
+df = data.frame(obs = 1:length(dist_norm),
+                x = seq(-3, 3, by = 0.001),
+                value_norm = dist_norm,
+                value_t = dist_t)
+
+df_melt = reshape2::melt(data = df, id.vars = c("obs", "x"))
+head(df_melt)
+
+library("ggplot2")
+ggplot() + 
+  geom_line(data = df_melt,
+            aes(x = obs,
+                y = value,
+                group = variable,
+                color = variable),
+            size = 1.5) + 
+  theme(legend.position = c(0.9, 0.9))
+```
+
+```{r}
+dist_t_05 = dt(x = seq(-3, 3, by = 0.001), df = 5)
+dist_t_15 = dt(x = seq(-3, 3, by = 0.001), df = 15)
+dist_t_30 = dt(x = seq(-3, 3, by = 0.001), df = 30)
+
+df = data.frame(obs = 1:length(dist_t_05),
+                x = seq(-3, 3, by = 0.001),
+                value_t_05 = dist_t_05,
+                value_t_15 = dist_t_15,
+                value_t_30 = dist_t_30)
+
+df_melt = reshape2::melt(data = df, id.vars = c("obs", "x"))
+head(df_melt)
+
+library("ggplot2")
+ggplot() + 
+  geom_line(data = df_melt,
+            aes(x = x,
+                y = value,
+                group = variable,
+                color = variable),
+            size = 1.5) + 
+  theme(legend.position = c(0.9, 0.9))
+```
+<br><br>
+
+|                           | 대표본(n $\le$ 30) | 소표본(n $\lt$ 30) |
+|---------------------------|-----------------|----------------|
+| 신뢰구간                  | dd              | cc             |
+| 모평균에 대한 검정 통계량 | bv              | df             |
+
+
+※ 참고: https://www.tablesgenerator.com/markdown_tables
