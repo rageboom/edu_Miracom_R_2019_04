@@ -1,0 +1,28 @@
+fac = factor(c("a", "b", "b", "c", "c"))
+fac
+fac[1]
+fac[5] = "a"
+fac
+
+fac[1] = "z"
+fac
+
+fac2 = factor(c("a", "b", "c"))
+fac2
+as.character(fac2)
+
+fac3 = factor(c(100, 2, 3, 4, 5))
+fac3
+as.numeric(fac3)
+fac3
+as.numeric(as.character(fac3))
+
+df = fread("edu_Miracom_R_2019_04-master/Miracom_dataset/bike.csv")
+str(df)
+
+install.packages("tidyverse")
+df = read.csv("edu_Miracom_R_2019_04-master/Miracom_dataset/bike.csv")
+head(df)
+library("tidyverse")
+
+options(stringsAsFactors = FALSE)
