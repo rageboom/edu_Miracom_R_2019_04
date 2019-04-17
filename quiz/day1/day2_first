@@ -1,0 +1,26 @@
+# 1. "bike.csv" 데이터를 read.csv() 함수로 불러와서 df 객체에 저장하시오.
+# (단, stringsAsFactors 인자의 값은 FALSE로 한다)
+# 
+df = read.csv("./edu_Miracom_R_2019_04-master/Miracom_dataset/bike.csv", stringsAsFactors = FALSE)
+# 2. df 객체의 상위 3개 row를 출력하시오.
+head(df, 3)
+# 3. df 객체의 row 개수를 확인하시오.
+nrow(df);
+# 4. df 객체의 column 개수를 확인하시오.
+ncol(df)
+# 5. df 객체의 temp 변수의 평균 값을 반올림하여 소수점 첫 째 자리까지 기술하시오.
+round(mean(df$temp), 1)
+# 6. df 객체의 holiday 변수가 1이면서, workingday 변수가 1인 경우가 존재하는지 확인하시오.
+length(df[, (df$holiday == 1) & (df$workingday == 1)])
+table(df$holiday, df$workingday)
+# 7. df 객체의 weather 변수에는 고유값(중복제거된값)이 몇 개 있는지 기술하시오.
+length(unique(df$weather))
+# 8. df 객체의 상위 10개 row만 추출하여 df_sub 객체에 저장하시오
+df_sub = head(df, 10)
+# 9. df_sub 객체를 "bike_sub.csv" 파일로 저장하시오.
+write.csv(x = df_sub, file = "bike_sub.csv")
+# 10. df 객체의 count 변수의 상위 1% 값 보다 큰 값을 이상치로 간주하고자 한다. 상위 1% 값을 구하시오.
+quantile(x = df$count, probs = 0.99)
+# 11. df 객체의 짝수 번째 row만 추출하여 "bike_even.csv" 파일로 저장하시오
+row = df[seq(from = 2, to = nrow(df), by = 2), ]
+write.csv(x = row, file = "bike_even.csv")
